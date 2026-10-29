@@ -1,17 +1,17 @@
 using UnityEngine;
+using random = System.Random;
 
 public class PlayerCtrl : MonoBehaviour
 {
     // 변수
-    Transform tr = null;
+    [SerializeField] Transform tr = null;
+    // 이동 속도 변수
+    [SerializeField] float moveSpeed = 10.0f;
 
     void Start()
     {
         // Component 할당
         tr = GetComponent<Transform>();
-        //tr = this.gameObject.GetComponent<Transform>();
-        //tr = GetComponent("Transform") as Transform;
-        //tr = (Transform)GetComponent(typeof(Transform));    
     }
 
     void Update()
@@ -22,10 +22,10 @@ public class PlayerCtrl : MonoBehaviour
         Debug.Log("h=" + h);
         Debug.Log("v=" + v);
 
-        // Transform position
-        //transform.position += new Vector3(0, 0, 1);
+        // 이동 방향 계산
+        Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
 
-        // normalized vector
-        tr.position += Vector3.forward * 1;
+        // Translate(이동 방향 * 속력 * Time.deltaTime)
+        tr.Translate(moveDir * moveSpeed * Time.deltaTime);
     }
 }
