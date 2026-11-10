@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d475b1ee5b974bb9027c6c4f8ce0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sparkEffect: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
 --- !u!1001 &221326252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d475b1ee5b974bb9027c6c4f8ce0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sparkEffect: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d475b1ee5b974bb9027c6c4f8ce0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sparkEffect: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
 --- !u!1 &1302348019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d475b1ee5b974bb9027c6c4f8ce0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sparkEffect: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
 --- !u!137 &1890406185 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 13700000, guid: f3cd25b3bf53c4adaaf087d862e435e6, type: 3}
@@ -1109,7 +1113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5884071724904259052, guid: 5a60622cc685d1c4890882247a1fab2e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.565
+      value: 10.45
       objectReference: {fileID: 0}
     - target: {fileID: 5884071724904259052, guid: 5a60622cc685d1c4890882247a1fab2e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1138,10 +1142,6 @@ PrefabInstance:
     - target: {fileID: 5884071724904259052, guid: 5a60622cc685d1c4890882247a1fab2e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884071724904259053, guid: 5a60622cc685d1c4890882247a1fab2e, type: 3}
-      propertyPath: force
-      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 5884071724904259054, guid: 5a60622cc685d1c4890882247a1fab2e, type: 3}
       propertyPath: m_Name
