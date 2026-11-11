@@ -25,6 +25,8 @@ public class FireCtrl : MonoBehaviour
     void Fire()
     {
         // Bullet 프리펩을 동적으로 생성(객체, 위치, 회전)
-        Instantiate(bullet, firePos.position, firePos.rotation);
+        var bul = Instantiate(bullet, firePos.position, firePos.rotation);
+        // 가끔 스테이지를 벗어나는 총알 처리
+        Destroy(bul, 5f);
     }
 }
