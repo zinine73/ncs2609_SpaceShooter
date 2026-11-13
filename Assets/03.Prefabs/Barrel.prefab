@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4641335552954522375}
   - component: {fileID: 4641335552954522379}
   - component: {fileID: 4641335552954522378}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,6 +112,10 @@ MonoBehaviour:
   goalCount: 3
   expDestroySec: 5
   barrelDestroySec: 3
+  textures:
+  - {fileID: 2800000, guid: e1f2b37b381e6d14a8a01ddd49a84a58, type: 3}
+  - {fileID: 2800000, guid: 0aa4112bfd022aa47919f151ba79ddc1, type: 3}
+  - {fileID: 2800000, guid: d38462a18d74e454aaf079b02bc753cd, type: 3}
 --- !u!1 &9219750061907313172
 GameObject:
   m_ObjectHideFlags: 0
