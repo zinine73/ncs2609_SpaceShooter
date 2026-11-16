@@ -18,6 +18,7 @@ public class BarrelCtrl : MonoBehaviour
     Transform tr;
     Rigidbody rb;
     int hitCount = 0;
+    Collider[] colls = new Collider[10];
     void Start()
     {
         tr = GetComponent<Transform>();
@@ -60,12 +61,15 @@ public class BarrelCtrl : MonoBehaviour
 
     void IndirectDamage(Vector3 pos)
     {
-        Collider[] colls = Physics.OverlapSphere(
+        //Collider[] colls = Physics.OverlapSphere(
+        Physics.OverlapSphereNonAlloc(
                             pos, 
                             radius,
+                            colls,
                             1 << 3);
         foreach (var coll in colls)
         {
+            if (coll == null) continue;
             rb = coll.GetComponent<Rigidbody>();
             rb.mass = 1.0f;
             rb.constraints = RigidbodyConstraints.None;
