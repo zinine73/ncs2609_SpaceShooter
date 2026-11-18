@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -16,7 +17,7 @@ public class PlayerCtrl : MonoBehaviour
     // 회전 속도 변수
     [SerializeField] float turnSpeed = 80.0f;
 
-    void Start()
+    IEnumerator Start()
     {
         // Component 할당
         tr = GetComponent<Transform>();
@@ -24,6 +25,10 @@ public class PlayerCtrl : MonoBehaviour
 
         // animation 실행
         anim.Play("Idle");
+
+        turnSpeed = 0.0f;
+        yield return new WaitForSeconds(0.3f);
+        turnSpeed = 80.0f;
     }
 
     void Update()
