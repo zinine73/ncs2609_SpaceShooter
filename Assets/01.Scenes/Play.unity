@@ -2490,6 +2490,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78323778490141488c3deb33371c892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  traceDist: 10
+  attackDist: 2
+  isDie: 0
 --- !u!195 &2106549979
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2509,7 +2513,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: -0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1001 &2112443325
