@@ -21,6 +21,7 @@ public class MonsterCtrl : MonoBehaviour
     Transform playerTr;
     NavMeshAgent agent;
     Animator anim;
+    GameObject bloodEffect;
     // Animator 파라미터의 해시값 추출
     readonly int hashTrace = Animator.StringToHash("IsTrace");
     readonly int hashAttack = Animator.StringToHash("IsAttack");
@@ -31,7 +32,7 @@ public class MonsterCtrl : MonoBehaviour
         playerTr = GameObject.FindWithTag("PLAYER").GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        //agent.destination = playerTr.position;
+        bloodEffect = Resources.Load<GameObject>("BloodSprayEffect");
         StartCoroutine(CheckMonsterState());
         StartCoroutine(MonsterAction());
     }
@@ -91,9 +92,23 @@ public class MonsterCtrl : MonoBehaviour
             Destroy(collision.gameObject);
             // 피격 애니메이션 실행
             anim.SetTrigger(hashHit);
+            // 총알의 충돌 지점
+            Vector3 pos = collision.GetContact(0).point;
+            // 총돌지점의 법선벡터
+            Quaternion rot = Quaternion.
+                LookRotation(-collision.GetContact(0).normal);
+            // 혈흔효과 생성
+            ShowBloodEffect(pos, rot);
         }    
     }
 
+    void ShowBloodEffect(Vector3 pos, Quaternion rot)
+    {
+        // 혈흔효과 생성
+        GameObject blood = Instantiate<GameObject>(bloodEffect,
+            pos, rot, monsterTr);
+        Destroy(blood, 1.0f);
+    }
     void OnDrawGizmos()
     {
         if (state == State.TRACE)
