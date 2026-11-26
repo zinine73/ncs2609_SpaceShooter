@@ -16,9 +16,11 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] float moveSpeed = 10.0f;
     // 회전 속도 변수
     [SerializeField] float turnSpeed = 80.0f;
-
+    readonly float initHp = 100.0f;
+    [SerializeField] float currHp;
     IEnumerator Start()
     {
+        currHp = initHp;
         // Component 할당
         tr = GetComponent<Transform>();
         anim = GetComponent<Animation>();
@@ -71,6 +73,33 @@ public class PlayerCtrl : MonoBehaviour
         else
         {
             anim.CrossFade("Idle", FADE_LENGTH);
+        }
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (currHp >= 0.0f && other.CompareTag("PUNCH"))
+        {
+            currHp -= 10.0f;
+            //Debug.Log("Player hp = " + currHp + "/" + initHp + "=" + currHp/initHp);
+            //Debug.LogFormat("Player hp = {0}/{1}={2}", currHp, initHp, currHp/initHp);
+            Debug.Log($"Player hp = {currHp}/{initHp}={currHp/initHp}");
+            //Debug.Log($"Player hp = {currHp/initHp}");
+            if (currHp <= 0.0f)
+            {
+                PlayerDie();
+            }
+        }
+    }
+    void PlayerDie()
+    {
+        Debug.Log("Player Die !");
+        // MONSTER 태그를 가진 모든 게임오브젝트들을 찾아옴
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("MONSTER");
+        // 모든 몬스터의 OnPlayerDie 함수를 순차적으로 호출
+        foreach(GameObject monster in monsters)
+        {
+            monster.SendMessage("OnPlayerDie", 
+                SendMessageOptions.DontRequireReceiver);
         }
     }
 }
